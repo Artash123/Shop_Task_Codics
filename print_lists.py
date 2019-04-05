@@ -23,7 +23,7 @@ class PrintLists:
         if len(products) == 0:
             print('Oops, shop is empty')
             return False
-        print('Item ID  Name        Price     Quantity')
+        print('Item ID  Name          Price     Quantity')
         print('___________________________________________')
         for index, product in enumerate(products):
             print('{}.'.format(index + 1), end=" ")

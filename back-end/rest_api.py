@@ -62,12 +62,13 @@ def get_product(id):
 
 @app.route('/products/<page>',methods=['GET'])
 def get_product_paginate(page):
+    products_in_page = 5
     page = int(page)
-    start = (page-1)*7
-    end = (page)*7
+    start = (page-1)*products_in_page
+    end = (page)*products_in_page
     with open(product_filename) as json_data:
         product_list = json.load(json_data)
-    last_page = int(len(product_list)/7)+1
+    last_page = int(len(product_list)/products_in_page)+1
     return jsonify({'products': product_list[start:end],'last_page': last_page}),200
 
 

@@ -30,8 +30,7 @@ class Buyer:
             return self.choose_product(page)
         quantity = PrintInputs.ask_quantity()
         product_price = product_manager.get_product_list(page)['products'][index-1].price
-        want_to_buy = PrintInputs().want_to_buy(quantity, product_price)
-        if want_to_buy == 'yes':
+        if PrintInputs().is_want_to_buy(quantity, product_price) == 'yes':
             if self.buy_product(index, page, quantity):
                 PrinterStatemants().print_thanks_purchase()
         self.choose_product(page)
